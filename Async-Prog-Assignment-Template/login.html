@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login</title>
+        <link rel="stylesheet" href="login.css">
+    </head>
+<style>
+     #navbar{
+       height: 75px;
+       width: 250px;
+       
+       margin-left: 1200px;
+       display: flex;
+       justify-content: space-around;
+       
+   } 
+   #container{
+       width:95%;
+       height: 50px;
+       border: 1px solid black;
+       margin: auto;
+       border-radius: 10px;
+   }
+
+#login-form-div{
+    height:200px;
+    width: 200px;
+    border: 1px solid;
+    margin: auto;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+#email{
+    margin-top: 20px;
+}
+#password{
+    margin-top: 20px;
+}
+#submit{
+    margin-top: 20px;
+    background-color:rgb(16, 138, 16) ;
+    border-radius: 5px; 
+}
+
+</style>
+
+
+
+    <body>
+     
+        <div id="container">
+            <div id="navbar">
+                <div><a href="signup.html">Signup</a></div>
+                <div><a href="login.html">Login</a></div>
+                <div><a href="index.html">Home</a></div>
+            </div>
+        <div id="login-form-div">
+
+            <form id="login" onsubmit="submitform(event)">
+                <!--Write form input elements here-->
+                <input type="text" placeholder="email" id="email">
+                <input type="password" placeholder="password" id="password">
+                <input type="submit" id="submit">
+
+
+
+            </form>
+
+        </div>
+    </body>
+
+</html>
+
+<script>
+
+var emaillast=localStorage.getItem("email")
+var passwordlast=localStorage.getItem("password")
+
+
+function login(email,password)
+{
+
+    this.email=email;
+    this.password=password;
+}
+
+var arr=[]
+
+function submitform(e){
+    e.preventDefault()
+    let form=document.querySelector("#login")
+    let email=form.email.value
+    let password=form.password.value
+
+    let p=new login(email,password)
+    
+    // arr.push(p)
+    // console.log(arr)
+
+if(emaillast==email&&passwordlast==password){
+    alert("login Successful")
+    window.location.href="index.html"
+}
+else{
+    alert("Invalid Credentials")
+}
+
+
+
+}
+
+
+
+</script>

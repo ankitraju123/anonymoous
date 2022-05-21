@@ -1,0 +1,16 @@
+#navbar{
+    height: 75px;
+    width: 250px;
+    
+    margin-left: 1200px;
+    display: flex;
+    justify-content: space-around;
+    
+} 
+#container{
+    width:95%;
+    height: 50px;
+    border: 1px solid black;
+    margin: auto;
+    border-radius: 10px;
+}

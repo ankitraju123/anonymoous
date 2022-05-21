@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Signup</title>
+       <link rel="stylesheet" href="signup.css">
+    </head>
+
+<style>
+   #navbar{
+       height: 75px;
+       width: 250px;
+       
+       margin-left: 1200px;
+       display: flex;
+       justify-content: space-around;
+       
+   } 
+
+   #movie{
+       height:300px;
+       width:200px;
+       
+       margin: auto;
+       text-align: center;
+       margin-top: 20px;
+       display: block;
+       box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px; ;
+       
+   }
+   #name{
+       margin-top: 20px;
+   }
+
+   #contact{
+    margin-top: 20px;
+   }
+   #email{
+    margin-top: 20px;  
+   }
+
+   #password{
+    margin-top: 20px;  
+   }
+
+   #submit{
+    margin-top: 20px; 
+    border-radius: 5px;
+    background-color: rgb(16, 138, 16);
+   }
+
+   #container{
+       width:95%;
+       height: 50px;
+       border: 1px solid black;
+       margin: auto;
+       border-radius: 10px;
+   }
+</style>
+
+    <body>
+      <div id="container">
+        <div id="navbar">
+            <div><a href="signup.html">Signup</a></div>
+            <div><a href="login.html">Login</a></div>
+            <div><a href="index.html">Home</a></div>
+        </div>
+      </div>
+     
+        <div id="signup-form-div">
+
+            <form id="movie" onsubmit="submitform(event)">
+                <!--Write form input elements here-->
+               <h1>SIGNUP</h1>
+                <input type="text" placeholder="Name" id="name">
+                <input type="number" placeholder="contact no" id="contact">
+                <input type="text" placeholder="email" id="email">
+                <input type="password" placeholder="Password" id="password">
+                <input type="submit" id="submit" >
+            </form>
+
+        </div>
+    </body>
+
+</html>
+
+<script>
+
+function movie(name,contact,email,password)
+{
+    this.name=name;
+    this.contact=contact;
+    this.email=email;
+    this.password=password
+
+}
+
+var arr=JSON.parse(localStorage.getItem("signup"))||[]
+
+function submitform(e){
+    e.preventDefault()
+
+    let form=document.querySelector("#movie");
+    let name=form.name.value
+    let contact=form.contact.value
+    let email=form.email.value
+    let password=form.password.value
+
+    let p=new movie(name,contact,email,password)
+    
+    arr.push(p)
+console.log(arr)
+
+
+if(name==""||contact==""||email==""||password=="")
+{
+    alert("mandatory field")
+}
+
+
+
+
+
+localStorage.setItem("signup",JSON.stringify(arr))
+
+
+    localStorage.setItem("email",email)
+    localStorage.setItem("password",password)
+
+    window.location.href="login.html"
+
+
+}
+
+
+</script>
